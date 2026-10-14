@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Калькулятор стоимости заказа — КубГУ</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="calculator.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-container header-inner">
+            <img
+                src="images/logo.png"
+                alt="Логотип Кубанского государственного университета"
+                class="logo"
+            >
+
+            <h1>Кубанский государственный университет</h1>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Основная навигация">
+        <div class="site-container nav-inner">
+            <a href="#top">Главная</a>
+            <a href="#calculator">Калькулятор</a>
+            <a href="#instructions">Как пользоваться</a>
+        </div>
+    </nav>
+
+    <main class="site-container main-content" id="top">
+
+        <section
+            class="content-section"
+            id="calculator"
+            aria-labelledby="calculator-title"
+        >
+            <h2 id="calculator-title">
+                Калькулятор стоимости заказа
+            </h2>
+
+            <p class="intro">
+                Выберите товар, укажите количество и нажмите
+                кнопку «Рассчитать». Стоимость заказа будет
+                рассчитана автоматически.
+            </p>
+
+            <form id="order-form" novalidate>
+                <div class="form-field">
+                    <label for="product">Товар:</label>
+
+                    <select id="product" name="product" required>
+                        <option value="notebook" data-price="120">
+                            Тетрадь — 120 ₽
+                        </option>
+
+                        <option value="pen" data-price="60">
+                            Ручка — 60 ₽
+                        </option>
+
+                        <option value="folder" data-price="180">
+                            Папка — 180 ₽
+                        </option>
+
+                        <option value="marker" data-price="95">
+                            Маркер — 95 ₽
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="quantity">
+                        Количество товара:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="quantity"
+                        name="quantity"
+                        inputmode="numeric"
+                        autocomplete="off"
+                        placeholder="Например, 3"
+                        aria-describedby="quantity-hint quantity-error"
+                        required
+                    >
+
+                    <p class="field-hint" id="quantity-hint">
+                        Введите целое положительное число,
+                        например 3.
+                    </p>
+
+                    <p
+                        class="error-message"
+                        id="quantity-error"
+                        role="alert"
+                        hidden
+                    ></p>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit">
+                        Рассчитать стоимость
+                    </button>
+
+                    <div
+                        class="result"
+                        id="result"
+                        aria-live="polite"
+                        hidden
+                    >
+                        <p id="result-text"></p>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <section
+            class="content-section instructions"
+            id="instructions"
+        >
+            <h2>Как пользоваться калькулятором</h2>
+
+            <ol>
+                <li>Выберите товар из списка.</li>
+                <li>Введите количество товара цифрами.</li>
+                <li>Нажмите «Рассчитать стоимость».</li>
+                <li>Итоговая сумма появится рядом с кнопкой.</li>
+            </ol>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-container">
+            <p>© Кубанский государственный университет</p>
+        </div>
+    </footer>
+</body>
+</html>
+<script src="script.js" defer></script>
